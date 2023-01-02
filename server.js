@@ -33,6 +33,19 @@ app.get('/posts', async (req, res) => {
     console.log(error);
   }
 });
+//Endpoint para crear Posts
+app.post("/posts", async (req, res) => {
+    const payload = req.body;
+    console.log(payload);
+
+    if (!payload.titulo || !payload.url || !payload.descripcion) {
+      console.log("los campos están vacios ");
+      return res.send({ error: "los campos están vacios" });
+    }
+    const post = await createPost(payload);
+    res.json(post);
+});
+  
 
 
 
