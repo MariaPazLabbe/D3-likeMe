@@ -24,32 +24,7 @@ app.get("/", (req, res) => {
   }
 });
 
-//Endpoint para buscar los Posts
-app.get('/posts', async (req, res) => {
-  try {
-    const getPosts = await getAllPosts();
-    console.log(getPosts);
-    res.json(getPosts);
-  } catch (error) {
-    console.log(error);
-  }
-});
 
-//Endpoint para crear Posts
-app.post("/posts", async (req, res) => {
-    const payload = req.body;
-    console.log(payload);
-
-    if (!payload.titulo || !payload.url || !payload.descripcion) {
-      console.log("los campos están vacios ");
-      return res.send({ error: "los campos están vacios" });
-    }
-    const post = await createPost(payload);
-    res.json(post);
-});
-  
-//Levanta el Servidor 
-app.listen(3000, console.log("SERVIDOR ENCENDIDO"));
 
 
 
