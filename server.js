@@ -23,6 +23,16 @@ app.get("/", (req, res) => {
     res.json({ message: "No se encuentra el recurso que estas solicitando" });
   }
 });
+//Endpoint para buscar los Posts
+app.get('/posts', async (req, res) => {
+  try {
+    const getPosts = await getAllPosts();
+    console.log(getPosts);
+    res.json(getPosts);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 
 
