@@ -45,7 +45,10 @@ app.post("/posts", async (req, res) => {
     const post = await createPost(payload);
     res.json(post);
 });
-  
+
+//Levanta el Servidor 
+app.listen(3000, console.log("SERVIDOR ENCENDIDO"));
+
 
 
 
