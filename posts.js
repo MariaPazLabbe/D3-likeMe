@@ -9,5 +9,9 @@ const pool = new Pool({
     database: "likeme",
     allowExitOnIdle: true,
 });
+const getAllPosts = async() => {
+  const { rows } = await pool.query("SELECT * FROM posts");
+  return rows;
+};
 
 
